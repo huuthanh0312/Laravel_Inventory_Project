@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\SupplierController;
+use App\Http\Controllers\Api\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,3 +34,5 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
 Route::apiResource('/employee', EmployeeController::class );
 
 Route::apiResource('/supplier', SupplierController::class );
+
+Route::apiResource('/category', CategoryController::class );
