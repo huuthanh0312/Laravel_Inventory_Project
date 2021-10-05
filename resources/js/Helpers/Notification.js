@@ -1,35 +1,35 @@
+
+
 class Notification {
     success() {
-        new Noty({
-            type: 'success',
-            layout: 'TopRight',
-            text: 'Successfully Done',
-            timeout: 1000,
-        }).show();
+        Toast.fire({
+            icon: 'success',
+            title: 'Successfully Done'
+            })
     }
     alert() {
-        new Noty({
-            type: 'alert',
-            layout: 'TopRight',
-            text: 'Are You Sure',
-            timeout: 1000,
-        }).show();
+        Toast.fire({
+            icon: 'info',
+            title: 'Are You Sure!'
+            })
     }
     error() {
-        new Noty({
-            type: 'error',
-            layout: 'TopRight',
-            text: 'Something Went Wrong !',
-            timeout: 1000,
-        }).show();
+        Toast.fire({
+            icon: 'error',
+            title: 'Something Went Wrong !'
+            })
     }
     warning() {
-        new Noty({
-            type: 'warning',
-            layout: 'TopRight',
-            text: 'Oops Wrong',
-            timeout: 1000,
-        }).show();
+        Toast.fire({
+            icon: 'warning',
+            title: 'Oops Wrong'
+            })
+    }
+    image_validation() {
+        Toast.fire({
+            icon: 'error',
+            title: 'Upload Image Less Then 5MB'
+            })
     }
 
 
@@ -37,3 +37,55 @@ class Notification {
 }
 
 export default Notification = new Notification()
+
+
+
+
+
+
+
+// class Notification {
+//     success() {
+//         new Noty({
+//             type: 'success',
+//             layout: 'topRight',
+//             text: 'Successfully Done',
+//             timeout: 1000,
+//         }).show();
+//     }
+//     alert() {
+//         new Noty({
+//             type: 'alert',
+//             layout: 'topRight',
+//             text: 'Are You Sure',
+//             timeout: 1000,
+//         }).show();
+//     }
+//     error() {
+//         new Noty({
+//             type: 'error',
+//             layout: 'topRight',
+//             text: 'Something Went Wrong !',
+//             timeout: 1000,
+//         }).show();
+//     }
+//     warning() {
+//         new Noty({
+//             type: 'warning',
+//             layout: 'topRight',
+//             text: 'Oops Wrong',
+//             timeout: 10000,
+//         }).show();
+//     }
+//     image_validation() {
+//         new Noty({
+//             type: 'error',
+//             layout: 'topRight',
+//             text: 'Upload Image Less Then 10MB',
+//             timeout: 10000,
+//         }).show();
+//     }
+
+
+
+// }
