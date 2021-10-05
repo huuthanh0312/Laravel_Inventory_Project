@@ -81,6 +81,20 @@
                             </div>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#product"
+                            aria-expanded="true" aria-controls="product">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Products</span>
+                        </a>
+                        <div id="product" class="collapse" aria-labelledby="headingTable"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <router-link to="/store-product" class="collapse-item" >Add Product</router-link>
+                                <router-link to="/product" class="collapse-item" >All Product</router-link>
+                            </div>
+                        </div>
+                    </li>
                     <hr class="sidebar-divider">
                     <div class="sidebar-heading">
                         Examples
