@@ -3,7 +3,7 @@
       
     <div class="col-xl-12 col-lg-12 col-md-12">
         <div class="float-right">
-                <router-link to="/store-employee" class="btn btn-rounded btn-primary">Add Employee</router-link>
+                <router-link to="/store-supplier" class="btn btn-rounded btn-primary">Add Supplier</router-link>
         </div> 
         <div class="card shadow-sm my-5">            
             <div class="card-body p-0">
@@ -12,10 +12,10 @@
                         <div class="login-form">
                             <div class="row">
                                 <div class=" col-lg-4">
-                                    <h1 class="h4 text-gray-900 mb-4">Employee List</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Supplier List</h1>
                                 </div>
                                 <div class=" col-lg-8">
-                                    <input type="text" class="form-control" placeholder="Search Employee Here" v-model="searchItem">
+                                    <input type="text" class="form-control" placeholder="Search Supplier Here" v-model="searchItem">
                                 </div>
                                 
                             </div> 
@@ -24,27 +24,27 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Name</th>
+                                        <th width="15%">Name</th>
                                         <th>Photo</th>
                                         <th>Phone</th>
+                                        <th>Shop Name</th>
                                         <th>Address</th>
-                                        <th>Salary</th>
-                                        <th>Joining Date</th>
+                                        <th>Email</th>
                                         <th width="20%">Adction</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="employee in filterSearch" :key="employee.id">
-                                        <td>{{employee.name}}</td>
-                                        <td><img :src="employee.photo" alt="" id="em_photo"></td>
-                                        <td>{{employee.phone}}</td>
-                                        <td>{{employee.address}}</td>
-                                        <td>{{employee.salary}} $</td>
-                                        <td>{{employee.joining_date}}</td>
+                                    <tr v-for="supplier in filterSearch" :key="supplier.id">
+                                        <td>{{supplier.name}}</td>
+                                        <td><img :src="supplier.photo" alt="" id="em_photo"></td>
+                                        <td>{{supplier.phone}}</td>
+                                        <td>{{supplier.shopname}}</td>
+                                        <td>{{supplier.address}}</td>
+                                        <td>{{supplier.email}}</td>
                                         <td>
-                                            <router-link :to="{name: 'edit-employee', params:{id:employee.id}}" class="btn btn-sm btn-warning">
+                                            <router-link :to="{name: 'edit-supplier', params:{id:supplier.id}}" class="btn btn-sm btn-warning">
                                                 Edit</router-link>
-                                            <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger text-white">Delete</a>
+                                            <a @click="deleteSupplier(supplier.id)" class="btn btn-sm btn-danger text-white">Delete</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -69,24 +69,24 @@ export default {
     },
     data() {
        return {
-           employees:[],
+           suppliers:[],
            searchItem:''
        } 
     },
     computed:{
         filterSearch(){
-            return this.employees.filter(employee => {
-                return employee.name.match(this.searchItem)
+            return this.suppliers.filter(supplier => {
+                return supplier.name.match(this.searchItem)
             })
         }
     },
     methods: {
-        allEmployee() {
-            axios.get('/api/employee')
-                .then(({data}) => this.employees = data)
+        allSupplier() {
+            axios.get('/api/supplier')
+                .then(({data}) => this.suppliers = data)
                 .catch()
         },
-        deleteEmployee(id) {
+        deleteSupplier(id) {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -97,10 +97,10 @@ export default {
             confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete('/api/employee/' + id)
+                axios.delete('/api/supplier/' + id)
                 .then(() => {
-                    this.employees = this.employees.filter( employee => {
-                        return employee.id != id
+                    this.suppliers = this.suppliers.filter( supplier => {
+                        return supplier.id != id
                     })
                 })
                 Swal.fire(
@@ -113,7 +113,7 @@ export default {
     }
     },
     created() {
-        this.allEmployee();
+        this.allSupplier();
     }
 }
 </script>
