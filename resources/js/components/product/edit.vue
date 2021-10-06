@@ -36,7 +36,7 @@
                                             </option>
                                     
                                         </select>
-                                    </div>
+                                    </div>  
                                     <div class="form-group col-sm-6">
                                         <label for="supplier_id">Product Supplier</label>
                                         <select class="form-control" id="supplier_id" v-model="form.supplier_id">
