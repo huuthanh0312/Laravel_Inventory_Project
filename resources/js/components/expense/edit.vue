@@ -62,7 +62,7 @@ export default {
         let id  = this.$route.params.id
         axios.get('/api/expense/' + id)
         .then(({data}) => (this.form = data) )
-        .catch(Notification.error)
+        .catch(Notification.error())
     },
     methods: {
         expenseUpdate(){

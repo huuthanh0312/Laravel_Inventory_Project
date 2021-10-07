@@ -72,7 +72,7 @@
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#category"
                             aria-expanded="true" aria-controls="category">
                             <i class="fas fa-fw fa-table"></i>
-                            <span>Categories</span>
+                            <span>Category</span>
                         </a>
                         <div id="category" class="collapse" aria-labelledby="headingTable"
                             data-parent="#accordionSidebar">
@@ -86,7 +86,7 @@
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#product"
                             aria-expanded="true" aria-controls="product">
                             <i class="fas fa-fw fa-table"></i>
-                            <span>Products</span>
+                            <span>Product</span>
                         </a>
                         <div id="product" class="collapse" aria-labelledby="headingTable"
                             data-parent="#accordionSidebar">
@@ -100,13 +100,27 @@
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Expenses"
                             aria-expanded="true" aria-controls="Expenses">
                             <i class="fas fa-fw fa-table"></i>
-                            <span>Expenses</span>
+                            <span>Expense</span>
                         </a>
                         <div id="Expenses" class="collapse" aria-labelledby="headingTable"
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <router-link to="/store-expense" class="collapse-item" >Add Expense</router-link>
                                 <router-link to="/expense" class="collapse-item" >All Expense</router-link>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Salary"
+                            aria-expanded="true" aria-controls="Salary">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Salary</span>
+                        </a>
+                        <div id="Salary" class="collapse" aria-labelledby="headingTable"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <router-link to="/given-salary" class="collapse-item" >Add Salary</router-link>
+                                <router-link to="/salary" class="collapse-item" >All Salary</router-link>
                             </div>
                         </div>
                     </li>

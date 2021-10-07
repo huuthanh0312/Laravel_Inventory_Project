@@ -129,7 +129,7 @@ export default {
         let id  = this.$route.params.id
         axios.get('/api/product/' + id)
         .then(({data}) => (this.form = data) )
-        .catch(Notification.error)
+        .catch(Notification.error())
 
         axios.get('/api/supplier')
             .then(({data}) => { this.suppliers = data})
