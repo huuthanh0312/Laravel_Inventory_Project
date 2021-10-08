@@ -127,18 +127,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'product_name' => 'required|max:255',
-            'product_code' => 'required|unique:products|max:255',
-            'category_id' => 'required',
-            'root' => 'required',
-            'buying_price' => 'required',
-            'selling_price' => 'required',
-            'supplier_id' => 'required',
-            'buying_date' => 'required',
-            'product_quantity' => 'required',
-
-        ]);
 
         $product = Product::find($id);  
         $product->product_name = $request->product_name; 
@@ -189,5 +177,13 @@ class ProductController extends Controller
             product::find($id)->delete();
         }
         return response()->json(['Deleted Product Successfully']);
+    }
+
+    public function updateStock(Request $request, $id){
+        $product = Product::find($id);  
+        $product->product_quantity = $request->product_quantity;
+        $product->save();
+        
+        return response()->json(['Update Stock Successfully']);
     }
 }

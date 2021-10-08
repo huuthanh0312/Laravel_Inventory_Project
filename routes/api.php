@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\Api\SalaryController;
-
+use App\Http\Controllers\Api\CustomerController;
 
 
 
@@ -40,14 +40,19 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
 
 });
 
+//Api employee Routes
 Route::apiResource('/employee', EmployeeController::class );
 
+//Api supplier Routes
 Route::apiResource('/supplier', SupplierController::class );
 
+//Api category Routes
 Route::apiResource('/category', CategoryController::class );
 
+//Api product Routes
 Route::apiResource('/product', ProductController::class );
 
+//Api expense Routes
 Route::apiResource('/expense', ExpenseController::class );
 
 //Api Salary Routes
@@ -61,3 +66,9 @@ Route::get('/salary/view/{id}', [SalaryController::class, 'viewSalary'] );
 Route::get('/salary/edit/{id}', [SalaryController::class, 'editSalary'] );
 
 Route::post('/salary/update/{id}', [SalaryController::class, 'updateSalary'] );
+
+//Stock Routes
+Route::post('/stock/update/{id}', [ProductController::class, 'updateStock'] );
+
+//Api Customer Routes
+Route::apiResource('/customer', CustomerController::class );

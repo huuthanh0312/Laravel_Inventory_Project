@@ -102,7 +102,7 @@ export default {
         let id  = this.$route.params.id
         axios.get('/api/employee/' + id)
         .then(({data}) => (this.form = data) )
-        .catch(Notification.error())
+        .catch(Notification.error)
     },
     methods: {
         onFileSelected(event){

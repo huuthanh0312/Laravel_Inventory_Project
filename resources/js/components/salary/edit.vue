@@ -94,7 +94,7 @@ export default {
         let id  = this.$route.params.id
         axios.get('/api/salary/edit/' + id)
         .then(({data}) => (this.form = data) )
-        .catch(Notification.error())
+        .catch(Notification.error)
     },
     methods: {
         salaryUpdate(){

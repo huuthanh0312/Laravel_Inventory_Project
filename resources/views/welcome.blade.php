@@ -39,6 +39,11 @@
                     <div class="sidebar-heading">
                         Features
                     </div>
+                    <li class="nav-item active">
+                        <router-link to="/" class="nav-link" >
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>POS</span></router-link>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
                             aria-expanded="true" aria-controls="collapseBootstrap">
@@ -86,13 +91,27 @@
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#product"
                             aria-expanded="true" aria-controls="product">
                             <i class="fas fa-fw fa-table"></i>
-                            <span>Product</span>
+                            <span>Products</span>
                         </a>
                         <div id="product" class="collapse" aria-labelledby="headingTable"
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <router-link to="/store-product" class="collapse-item" >Add Product</router-link>
                                 <router-link to="/product" class="collapse-item" >All Product</router-link>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Customers"
+                            aria-expanded="true" aria-controls="Customers">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Customers</span>
+                        </a>
+                        <div id="Customers" class="collapse" aria-labelledby="headingTable"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <router-link to="/store-customer" class="collapse-item" >Add Customer</router-link>
+                                <router-link to="/customer" class="collapse-item" >All Customer</router-link>
                             </div>
                         </div>
                     </li>
@@ -110,6 +129,7 @@
                             </div>
                         </div>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Salary"
                             aria-expanded="true" aria-controls="Salary">
@@ -124,35 +144,30 @@
                             </div>
                         </div>
                     </li>
-                    <hr class="sidebar-divider">
+                    <li class="nav-item">
+                        <router-link to="/stock" class="nav-link" >
+                            <i class="fas fa-fw fa-chart-area"></i>
+                            <span>Stock</span>
+                        </router-link>
+                    </li>
+                    <!-- <hr class="sidebar-divider">
                     <div class="sidebar-heading">
                         Examples
-                    </div>
+                    </div> -->
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage"
                             aria-expanded="true" aria-controls="collapsePage">
                             <i class="fas fa-fw fa-columns"></i>
-                            <span>Pages</span>
+                            <span>Reports</span>
                         </a>
                         <div id="collapsePage" class="collapse" aria-labelledby="headingPage"
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Example Pages</h6>
-                                <a class="collapse-item" href="login.html">Login</a>
-                                <a class="collapse-item" href="register.html">Register</a>
-                                <a class="collapse-item" href="404.html">404 Page</a>
-                                <a class="collapse-item" href="blank.html">Blank Page</a>
+                                <router-link to="/given-salary" class="collapse-item" >Report One</router-link>
+                                <router-link to="/salary" class="collapse-item" >Report Two</router-link>
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="charts.html">
-                            <i class="fas fa-fw fa-chart-area"></i>
-                            <span>Charts</span>
-                        </a>
-                    </li>
-                    <hr class="sidebar-divider">
-                    <div class="version" id="version-ruangadmin"></div>
                 </ul>
             </nav>
             <!-- Sidebar -->
@@ -370,7 +385,8 @@
                     <!---Container Fluid-->
                 </div>
                 <!-- Footer -->
-                <footer class="sticky-footer bg-white">
+                <footer id="footer" class="sticky-footer bg-white" v-show="$route.path === '/' || $route.path === '/register' || $route.path === '/forget' ? false : true "
+                    style="display:none;">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
                             <span>copyright &copy; 2021- developed by
@@ -396,6 +412,7 @@
         if(token){
             $('#sidebar').css("display", "");
             $('#topbar').css("display", "");
+            $('#footer').css("display", "");
         }
     </script>
 

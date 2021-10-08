@@ -7,39 +7,36 @@
                     <div class="col-lg-12">
                         <div class="login-form">
                             <div class="float-left">
-                            <h1 class="h4 text-gray-900 mb-4">Supplier Update</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Customer Update</h1>
                             </div>
                             <div class="float-right">
-                                <router-link to="/supplier" class="btn btn-rounded btn-primary">All Supplier</router-link>
+                                <router-link to="/customer" class="btn btn-rounded btn-primary">All Customer</router-link>
                             </div>
                             <br><br>
                             <hr>  
-                            <form @submit.prevent="supplierUpdate" enctype="multipart/form-data">
+                            <form @submit.prevent="customerUpdate" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="form-group col-sm-6" >
-                                        <input type="text" class="form-control" id="exampleInputLastName" placeholder="Enter Your Full Name" v-model="form.name">
+                                         <label for="name">Customer Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter Your Full Name" v-model="form.name">
                                         <small class="text-danger" v-if="errors.name">{{ errors.name[0]}}</small>
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                                         <label for="email">Customer Email</label>
+                                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                                         placeholder="Enter Your Email" v-model="form.email">
                                         <small class="text-danger" v-if="errors.email">{{ errors.email[0]}}</small>
                                     </div>
-                                    
-                                    <div class="form-group col-sm-6" >
-                                        <input type="text" class="form-control" id="exampleInputLastName" placeholder="Enter Your Address" v-model="form.address">
-                                        <small class="text-danger" v-if="errors.address">{{ errors.address[0]}}</small>
-                                    </div>
-                                    
                                     <div class="form-group col-sm-6">
-                                        <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                                        placeholder="Enter Your Shop Name" v-model="form.shopname">
-                                        <small class="text-danger" v-if="errors.shopname">{{ errors.shopname[0]}}</small>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                                        placeholder="Enter Your Phone Number" v-model="form.phone">
+                                         <label for="phone">Customer Phone</label>
+                                        <input type="text" class="form-control" id="phone" aria-describedby="emailHelp"
+                                        placeholder="Enter Your Phone" v-model="form.phone">
                                         <small class="text-danger" v-if="errors.phone">{{ errors.phone[0]}}</small>
+                                    </div>
+                                    <div class="form-group col-sm-6" >
+                                         <label for="address">Customer Address</label>
+                                        <input type="text" class="form-control" id="address" placeholder="Enter Your Address" v-model="form.address">
+                                        <small class="text-danger" v-if="errors.address">{{ errors.address[0]}}</small>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <div class="custom-file">
@@ -48,8 +45,8 @@
                                             <small class="text-danger" v-if="errors.newphoto">{{ errors.newphoto[0]}}</small>
                                         </div>                                      
                                     </div>
-                                    <div class="form-group col-sm-12">
-                                        <img :src="form.newphoto" class="float-right" style="width: 50px; height:50px;">                                   
+                                    <div class="form-group col-sm-6">
+                                        <img :src="form.newphoto" alt="" style="width: 50px; height:50px;">                                   
                                     </div>
                                     <div class="form-group col-sm-12">
                                         <button type="submit" class="btn btn-primary btn-block">Update</button>
@@ -81,7 +78,6 @@ export default {
                 email: '',
                 address: '',
                 phone: '',
-                shopname: '',
                 photo: '',
                 newphoto: '',
            },
@@ -90,7 +86,7 @@ export default {
     },
     created() {
         let id  = this.$route.params.id
-        axios.get('/api/supplier/' + id)
+        axios.get('/api/customer/' + id)
         .then(({data}) => (this.form = data) )
         .catch(Notification.error)
     },
@@ -107,11 +103,11 @@ export default {
                 reader.readAsDataURL(file);
             }
         },
-        supplierUpdate(){
+        customerUpdate(){
             let id  = this.$route.params.id
-            axios.patch('/api/supplier/'+id, this.form)
+            axios.patch('/api/customer/'+id, this.form)
             .then(() => {
-                this.$router.push({name: 'supplier'})
+                this.$router.push({name: 'customer'})
                 Notification.success()
             })
             .catch(error =>{

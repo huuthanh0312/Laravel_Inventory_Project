@@ -36,6 +36,17 @@ let salary = require('./components/salary/index.vue').default;
 let viewsalary = require('./components/salary/view.vue').default;
 let editsalary = require('./components/salary/edit.vue').default;
 
+// Product Stock Component
+let stock = require('./components/product/stock.vue').default;
+let editstock = require('./components/product/edit_stock.vue').default;
+
+// Customer Component
+let customer = require('./components/customer/index.vue').default;
+let storecustomer = require('./components/customer/create.vue').default;
+let editcustomer = require('./components/customer/edit.vue').default;
+
+
+
 export const routes = [
     { path: '/', component: login, name: '/' },
     //Auth routes
@@ -60,10 +71,10 @@ export const routes = [
     { path: '/store-category', component: storecategory, name: 'store-category'},
     { path: '/edit-category/:id', component: editcategory, name: 'edit-category'},
     
-   // Product Routes
-   { path: '/product', component: product, name: 'product'},
-   { path: '/store-product', component: storeproduct, name: 'store-product'},
-   { path: '/edit-product/:id', component: editproduct, name: 'edit-product'},
+    // Product Routes
+    { path: '/product', component: product, name: 'product'},
+    { path: '/store-product', component: storeproduct, name: 'store-product'},
+    { path: '/edit-product/:id', component: editproduct, name: 'edit-product'},
 
     // Expense Routes
     { path: '/expense', component: expense, name: 'expense'},
@@ -71,9 +82,20 @@ export const routes = [
     { path: '/edit-expense/:id', component: editexpense, name: 'edit-expense'},
 
      // Salary Routes
-     { path: '/given-salary', component: addsalary, name: 'given-salary'},
-     { path: '/pay-salary/:id', component: paysalary, name: 'pay-salary'},
-     { path: '/salary', component: salary, name: 'salary'},
-     { path: '/view-salary/:id', component: viewsalary, name: 'view-salary'},
-     { path: '/edit-salary/:id', component: editsalary, name: 'edit-salary'},
+    { path: '/given-salary', component: addsalary, name: 'given-salary'},
+    { path: '/pay-salary/:id', component: paysalary, name: 'pay-salary'},
+    { path: '/salary', component: salary, name: 'salary'},
+    { path: '/view-salary/:id', component: viewsalary, name: 'view-salary'},
+    { path: '/edit-salary/:id', component: editsalary, name: 'edit-salary'},
+
+    // Stock Routes
+    { path: '/stock', component: stock, name: 'stock'},
+    { path: '/edit-stock/:id', component: editstock, name: 'edit-stock'},
+
+    // Employee Routes
+    { path: '/customer', component: customer, name: 'customer'},
+    { path: '/store-customer', component: storecustomer, name: 'store-customer'},
+    { path: '/edit-customer/:id', component: editcustomer, name: 'edit-customer'},
+    
+
   ]
