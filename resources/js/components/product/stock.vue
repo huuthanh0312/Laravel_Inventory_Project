@@ -3,7 +3,7 @@
       
     <div class="col-xl-12 col-lg-12 col-md-12">
         <div class="float-right">
-                <router-link to="/store-product" class="btn btn-rounded btn-primary">Add Product</router-link>
+                <router-link to="/product" class="btn btn-rounded btn-primary">All Product</router-link>
         </div> 
         <div class="card shadow-sm my-5">            
             <div class="card-body p-0">
@@ -12,7 +12,7 @@
                         <div class="login-form">
                             <div class="row">
                                 <div class=" col-lg-4">
-                                    <h1 class="h4 text-gray-900 mb-4">Product List</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Stock</h1>
                                 </div>
                                 <div class=" col-lg-8">
                                     <input type="text" class="form-control" placeholder="Search Product Here" v-model="searchItem">

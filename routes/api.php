@@ -10,8 +10,9 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\Api\SalaryController;
 use App\Http\Controllers\Api\CustomerController;
-
-
+use App\Http\Controllers\Api\PosController;
+use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Api\OrderController;
 
 
 /*
@@ -56,7 +57,6 @@ Route::apiResource('/product', ProductController::class );
 Route::apiResource('/expense', ExpenseController::class );
 
 //Api Salary Routes
-
 Route::post('/salary/paid/{id}', [SalaryController::class, 'salaryPaid'] );
 
 Route::get('/salary', [SalaryController::class, 'allSalary'] );
@@ -72,3 +72,41 @@ Route::post('/stock/update/{id}', [ProductController::class, 'updateStock'] );
 
 //Api Customer Routes
 Route::apiResource('/customer', CustomerController::class );
+
+//Api POS and Cart Routes 
+Route::get('/getting/product/{id}', [PosController::class, 'getProduct'] );
+
+Route::get('/addToCart/{id}', [CartController::class, 'addToCart'] );
+
+Route::get('/cart/product', [CartController::class, 'cartProduct'] );
+
+Route::get('/remove/cart/{id}', [CartController::class, 'removeCart'] );
+
+Route::get('/increment/cart/{id}', [CartController::class, 'incrementCart'] );
+
+Route::get('/decrement/cart/{id}', [CartController::class, 'decrementCart'] );
+
+Route::get('/vats', [CartController::class, 'Vats'] );
+
+Route::post('/orderdone', [PosController::class, 'orderDone'] );
+
+// Order routes
+Route::get('/orders', [OrderController::class, 'todayOrder'] );
+
+Route::get('/order/details/{id}', [OrderController::class, 'orderDetails'] );
+
+Route::get('/order/alldetails/{id}', [OrderController::class, 'orderDetailsALL'] );
+
+Route::post('/search/order', [OrderController::class, 'searchOrderDate'] );
+
+// Admin Doshboard Routes
+Route::get('/today/sell', [PosController::class, 'todaySell'] );
+
+Route::get('/today/income', [PosController::class, 'todayIncome'] );
+
+Route::get('/today/due', [PosController::class, 'todayDue'] );
+
+Route::get('/today/expense', [PosController::class, 'todayExpense'] );
+
+Route::get('/today/stockout', [PosController::class, 'todayStockOut'] );
+

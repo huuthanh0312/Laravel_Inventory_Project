@@ -31,6 +31,24 @@ class Notification {
             title: 'Upload Image Less Then 5MB'
             })
     }
+    card_success() {
+        Toast.fire({
+            icon: 'success',
+            title: 'Add To Cart Successfully'
+            })
+    }
+    card_delete() {
+        Toast.fire({
+            icon: 'success',
+            title: 'Deleted Product Successfully'
+            })
+    }
+    card_error() {
+        Toast.fire({
+            icon: 'error',
+            title: 'Add To Cart Invaild'
+            })
+    }
 
 
 

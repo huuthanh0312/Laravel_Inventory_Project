@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="col-xl-8 col-lg-8 col-md-8">
             <div class="card shadow-sm my-5">
                 <div class="card-body p-0">
                     <div class="row">
@@ -20,13 +20,16 @@
                                             v-model="form.password" placeholder="Password">
                                         <small class="text-danger" v-if="errors.password">{{ errors.password[0]}}</small>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
+                                    <div class="form-group row m-2">
+                                        <div class="custom-control custom-checkbox small col-lg-6 " style="line-height: 1.5rem;">
                                             <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            <label class="custom-control-label" for="customCheck">Remember
-                                                Me</label>
+                                            <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                        <router-link to="/forget" class="font-weight-bold small float-right">Forget Password ?</router-link>
                                         </div>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                                     </div>
@@ -34,11 +37,9 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <router-link to="/register" class="font-weight-bold small">Create an Account</router-link>
+                                    <router-link to="/register" class="font-weight-bold small">Create an Account ?</router-link>
                                 </div>
-                                <div class="text-center">
-                                    <router-link to="/forget" class="font-weight-bold small">Forget Password</router-link>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
